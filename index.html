@@ -1,0 +1,423 @@
+```html
+{% extends "base.html" %}
+
+
+{% block title %}
+
+Inicio | Club Fútbol Elite
+
+{% endblock %}
+
+
+{% block content %}
+
+
+<!-- PORTADA -->
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <p class="hero-label">
+
+            ⚽ LA PASIÓN NOS UNE
+
+        </p>
+
+        <h1>
+
+            VIVE EL
+
+            <span>
+
+                FÚTBOL
+
+            </span>
+
+        </h1>
+
+        <p>
+
+            Descubre la historia, conoce los
+            torneos más importantes y demuestra
+            cuánto sabes en nuestra trivia.
+
+        </p>
+
+        <a
+            class="button"
+            href="#trivia"
+        >
+
+            JUGAR LA TRIVIA
+
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- HISTORIA -->
+
+<section id="historia">
+
+    <h2 class="section-title">
+
+        Historia del fútbol
+
+    </h2>
+
+    <p class="section-text">
+
+        El fútbol moderno nació en Inglaterra
+        durante el siglo XIX. Con el paso del
+        tiempo se convirtió en uno de los
+        deportes más populares del planeta.
+
+        Actualmente millones de personas siguen
+        a sus clubes y selecciones favoritas.
+
+    </p>
+
+
+    <div class="cards">
+
+        <article class="card">
+
+            <h3>
+
+                ⚽ Los inicios
+
+            </h3>
+
+            <p>
+
+                En 1863 se establecieron las
+                primeras reglas oficiales del
+                fútbol moderno.
+
+            </p>
+
+        </article>
+
+
+        <article class="card">
+
+            <h3>
+
+                🏆 La Copa del Mundo
+
+            </h3>
+
+            <p>
+
+                El primer Mundial se jugó en
+                Uruguay en 1930 y fue ganado
+                por la selección anfitriona.
+
+            </p>
+
+        </article>
+
+
+        <article class="card">
+
+            <h3>
+
+                🌎 Un deporte mundial
+
+            </h3>
+
+            <p>
+
+                El fútbol se practica en todos
+                los continentes y une a personas
+                de diferentes culturas.
+
+            </p>
+
+        </article>
+
+    </div>
+
+</section>
+
+
+<!-- TORNEOS -->
+
+<section id="torneos">
+
+    <h2 class="section-title">
+
+        Grandes torneos
+
+    </h2>
+
+    <p class="section-text">
+
+        Conoce algunos de los campeonatos más
+        importantes del fútbol internacional.
+
+    </p>
+
+
+    <div class="cards">
+
+        <article class="card">
+
+            <h3>
+
+                🏆 Copa del Mundo
+
+            </h3>
+
+            <p>
+
+                El torneo de selecciones más
+                importante del fútbol.
+
+            </p>
+
+            <p>
+
+                Participan equipos nacionales de
+                diferentes países.
+
+            </p>
+
+        </article>
+
+
+        <article class="card">
+
+            <h3>
+
+                ⭐ Champions League
+
+            </h3>
+
+            <p>
+
+                Competición en la que participan
+                algunos de los mejores clubes de
+                Europa.
+
+            </p>
+
+            <p>
+
+                Se juega mediante una fase de
+                grupos y rondas eliminatorias.
+
+            </p>
+
+        </article>
+
+
+        <article class="card">
+
+            <h3>
+
+                🌎 Copa América
+
+            </h3>
+
+            <p>
+
+                El torneo internacional más
+                importante de las selecciones
+                sudamericanas.
+
+            </p>
+
+            <p>
+
+                Reúne a grandes jugadores y
+                selecciones del continente.
+
+            </p>
+
+        </article>
+
+    </div>
+
+</section>
+
+
+<!-- PARTIDOS -->
+
+<section id="partidos">
+
+    <h2 class="section-title">
+
+        Partidos destacados
+
+    </h2>
+
+    <p class="section-text">
+
+        Ejemplos de encuentros que pueden
+        aparecer en los diferentes torneos.
+
+    </p>
+
+
+    <div class="cards">
+
+        <article class="card">
+
+            <h3>
+
+                Copa del Mundo
+
+            </h3>
+
+            <p>
+
+                Argentina
+
+                <strong>
+
+                    VS
+
+                </strong>
+
+                Francia
+
+            </p>
+
+        </article>
+
+
+        <article class="card">
+
+            <h3>
+
+                Champions League
+
+            </h3>
+
+            <p>
+
+                Real Madrid
+
+                <strong>
+
+                    VS
+
+                </strong>
+
+                Bayern Múnich
+
+            </p>
+
+        </article>
+
+
+        <article class="card">
+
+            <h3>
+
+                Copa América
+
+            </h3>
+
+            <p>
+
+                Brasil
+
+                <strong>
+
+                    VS
+
+                </strong>
+
+                Uruguay
+
+            </p>
+
+        </article>
+
+    </div>
+
+</section>
+
+
+<!-- TRIVIA -->
+
+<section id="trivia">
+
+    <h2 class="section-title">
+
+        Trivia de fútbol
+
+    </h2>
+
+    <p class="section-text">
+
+        Selecciona una categoría y demuestra
+        cuánto sabes sobre la historia,
+        los Mundiales y las grandes leyendas.
+
+    </p>
+
+
+    <div class="quiz-container">
+
+        <h2>
+
+            Elige un cuestionario
+
+        </h2>
+
+
+        <form
+            action="{{ url_for('index') }}"
+            method="POST"
+        >
+
+            <label for="quiz">
+
+                Categoría:
+
+            </label>
+
+
+            <select
+                name="quiz"
+                id="quiz"
+                required
+            >
+
+                {% for id, name in quises %}
+
+                <option value="{{ id }}">
+
+                    {{ name }}
+
+                </option>
+
+                {% endfor %}
+
+            </select>
+
+
+            <button
+                class="button"
+                type="submit"
+            >
+
+                COMENZAR
+
+            </button>
+
+        </form>
+
+    </div>
+
+</section>
+
+
+{% endblock %}
+```
