@@ -1,0 +1,102 @@
+```html
+{% extends "base.html" %}
+
+
+{% block title %}
+
+Trivia | Club Fútbol Elite
+
+{% endblock %}
+
+
+{% block content %}
+
+
+<section class="quiz-page">
+
+    <div class="quiz-container">
+
+
+        <p class="hero-label">
+
+            PREGUNTA {{ numero }}
+
+        </p>
+
+
+        <h1 class="question">
+
+            {{ pregunta }}
+
+        </h1>
+
+
+        <form
+            action="{{ url_for('test') }}"
+            method="POST"
+        >
+
+
+            <div class="options">
+
+
+                {% for opcion in opciones %}
+
+
+                <label class="option">
+
+
+                    <input
+                        type="radio"
+                        name="ans_text"
+                        value="{{ opcion }}"
+                        required
+                    >
+
+
+                    <span>
+
+                        {{ opcion }}
+
+                    </span>
+
+
+                </label>
+
+
+                {% endfor %}
+
+
+            </div>
+
+
+            <button
+                class="button"
+                type="submit"
+            >
+
+                RESPONDER
+
+            </button>
+
+
+        </form>
+
+
+        <a
+            class="back-link"
+            href="{{ url_for('index') }}"
+        >
+
+            ← Cancelar y volver al inicio
+
+        </a>
+
+
+    </div>
+
+</section>
+
+
+{% endblock %}
+```

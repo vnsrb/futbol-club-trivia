@@ -1,6 +1,3 @@
-#cuestionario.py
-
-
 from flask import (
     Flask,
     redirect,

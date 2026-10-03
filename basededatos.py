@@ -1,5 +1,3 @@
-#basededatos.py
-
 
 import sqlite3
 

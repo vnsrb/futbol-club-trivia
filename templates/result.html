@@ -1,0 +1,212 @@
+```html
+{% extends "base.html" %}
+
+
+{% block title %}
+
+Resultado | Club Fútbol Elite
+
+{% endblock %}
+
+
+{% block content %}
+
+
+<section class="result-page">
+
+
+    <div class="quiz-container">
+
+
+        <p class="hero-label">
+
+            TRIVIA FINALIZADA
+
+        </p>
+
+
+        <h1 class="question">
+
+            ¡Partido terminado!
+
+        </h1>
+
+
+        <p class="section-text">
+
+            Estos son tus resultados en la
+            trivia de fútbol.
+
+        </p>
+
+
+        <div class="stats">
+
+
+            <div class="stat">
+
+                <strong>
+
+                    {{ totales }}
+
+                </strong>
+
+                <span>
+
+                    Preguntas respondidas
+
+                </span>
+
+            </div>
+
+
+            <div class="stat">
+
+                <strong>
+
+                    {{ correctas }}
+
+                </strong>
+
+                <span>
+
+                    Respuestas correctas
+
+                </span>
+
+            </div>
+
+
+            <div class="stat">
+
+                <strong>
+
+                    {{ incorrectas }}
+
+                </strong>
+
+                <span>
+
+                    Respuestas incorrectas
+
+                </span>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="percentage">
+
+
+            <p>
+
+                Tu porcentaje fue:
+
+            </p>
+
+
+            <strong>
+
+                {{ porcentaje }}%
+
+            </strong>
+
+
+        </div>
+
+
+        {% if porcentaje == 100 %}
+
+
+        <h2>
+
+            🏆 ¡Resultado perfecto!
+
+        </h2>
+
+
+        <p>
+
+            Demostraste que eres una verdadera
+            leyenda del fútbol.
+
+        </p>
+
+
+        {% elif porcentaje >= 70 %}
+
+
+        <h2>
+
+            ⭐ ¡Muy buen partido!
+
+        </h2>
+
+
+        <p>
+
+            Tienes grandes conocimientos sobre
+            el mundo del fútbol.
+
+        </p>
+
+
+        {% elif porcentaje >= 40 %}
+
+
+        <h2>
+
+            ⚽ ¡Buen esfuerzo!
+
+        </h2>
+
+
+        <p>
+
+            Sigue practicando para mejorar
+            tus resultados.
+
+        </p>
+
+
+        {% else %}
+
+
+        <h2>
+
+            📚 Sigue entrenando
+
+        </h2>
+
+
+        <p>
+
+            Puedes volver a jugar y aprender
+            más sobre fútbol.
+
+        </p>
+
+
+        {% endif %}
+
+
+        <a
+            class="button"
+            href="{{ url_for('index') }}"
+        >
+
+            VOLVER A JUGAR
+
+        </a>
+
+
+    </div>
+
+
+</section>
+
+
+{% endblock %}
+```
